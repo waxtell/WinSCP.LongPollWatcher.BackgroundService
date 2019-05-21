@@ -81,40 +81,56 @@ namespace WinSCP.LongPollWatcher.BackgroundService
                                         )
                                         select currentFile;
 
-                                foreach (var modifiedFile in modifiedFiles)
-                                {
-                                    await
-                                        _events
-                                            .OnFileModified
+                                Task
+                                    .WaitAll
+                                    (
+                                        modifiedFiles
+                                            .Select
                                             (
-                                                modifiedFile.FullName,
-                                                stoppingToken
-                                            );
-                                }
+                                                file => _events
+                                                            .OnFileModified
+                                                            (
+                                                                file.FullName,
+                                                                stoppingToken
+                                                            )
+                                            )
+                                            .ToArray()
+                                    );
 
-                                foreach (var newFile in currentFiles.Except(previousFiles))
-                                {
-                                    
-                                    await 
-                                        _events
-                                            .OnFileAdded
+                                Task
+                                    .WaitAll
+                                    (
+                                        currentFiles
+                                            .Except(previousFiles)
+                                            .Select
                                             (
-                                                newFile.FullName, 
-                                                _sessionOptions, 
-                                                stoppingToken
-                                            );
-                                }
+                                                file => _events
+                                                            .OnFileAdded
+                                                            (
+                                                                file.FullName,
+                                                                _sessionOptions,
+                                                                stoppingToken
+                                                            )
+                                            )
+                                            .ToArray()
+                                    );
 
-                                foreach (var deletedFile in previousFiles.Except(currentFiles))
-                                {
-                                    await 
-                                        _events
-                                            .OnFileDeleted
+                                Task
+                                    .WaitAll
+                                    (
+                                        previousFiles
+                                            .Except(currentFiles)
+                                            .Select
                                             (
-                                                deletedFile.FullName,
-                                                stoppingToken
-                                            );
-                                }
+                                                file => _events
+                                                            .OnFileDeleted
+                                                            (
+                                                                file.FullName,
+                                                                stoppingToken
+                                                            )
+                                            )
+                                            .ToArray()
+                                    );
                             }
 
                             previousFiles = currentFiles;
