@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.28902.138
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinSCP.LongPollWatcher.BackgroundService", "WinSCP.LongPollWatcher.BackgroundService\WinSCP.LongPollWatcher.BackgroundService.csproj", "{297CE64D-A0FF-4205-8D37-B7C2FD9EEF66}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleApp9000", "SampleApp9000\SampleApp9000.csproj", "{3BAE638A-59F4-48BA-B1A8-0E125B99665D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,10 +17,10 @@ Global
 		{297CE64D-A0FF-4205-8D37-B7C2FD9EEF66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{297CE64D-A0FF-4205-8D37-B7C2FD9EEF66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{297CE64D-A0FF-4205-8D37-B7C2FD9EEF66}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D20FDE2B-BEDD-4ACC-B05C-76AAE1878105}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D20FDE2B-BEDD-4ACC-B05C-76AAE1878105}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D20FDE2B-BEDD-4ACC-B05C-76AAE1878105}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D20FDE2B-BEDD-4ACC-B05C-76AAE1878105}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BAE638A-59F4-48BA-B1A8-0E125B99665D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BAE638A-59F4-48BA-B1A8-0E125B99665D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BAE638A-59F4-48BA-B1A8-0E125B99665D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BAE638A-59F4-48BA-B1A8-0E125B99665D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
