@@ -91,6 +91,7 @@ namespace WinSCP.LongPollWatcher.BackgroundService
                                                             .OnFileModified
                                                             (
                                                                 file.FullName,
+                                                                _sessionOptions,
                                                                 stoppingToken
                                                             )
                                             )
@@ -135,20 +136,24 @@ namespace WinSCP.LongPollWatcher.BackgroundService
 
                             previousFiles = currentFiles;
 
-                            await 
+                            await
                                 Task.Delay(_options.SleepIntervalMilliseconds, stoppingToken);
                         }
                     }
                 }
+                catch (TaskCanceledException)
+                {
+                    throw;
+                }
                 catch (Exception e)
                 {
-                    var shouldContinue = await 
+                    var shouldContinue = await
                                             _events
-                                                .OnException(e,stoppingToken);
+                                                .OnException(e, stoppingToken);
 
                     if (!shouldContinue)
                     {
-                        await 
+                        await
                             StopAsync(stoppingToken);
                     }
                 }
