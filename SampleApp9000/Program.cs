@@ -15,11 +15,21 @@ namespace SampleApp9000
 {
     public class Program
     {
-        public static async Task Main(string[] args)
+        // AppVeyor currently does not provide an environment that supports c# 7.1
+        // This makes main synchronous and me sad.
+        //
+        //public static async Task Main(string[] args)
+        //{
+        //    await
+        //        CreateHostBuilder(args)
+        //            .RunConsoleAsync();
+        //}
+
+        public static void Main(string[] args)
         {
-            await
-                CreateHostBuilder(args)
-                    .RunConsoleAsync();
+            CreateHostBuilder(args)
+                .Build()
+                .Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
