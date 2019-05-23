@@ -58,7 +58,9 @@ namespace WinSCP.LongPollWatcher.BackgroundService
                             session.ExecutablePath = _options.SessionExecutablePath;
                         }
 
-                        IList<TrackedFile> previousFiles = null;
+                        IList<TrackedFile> previousFiles = _options.TreatExistingFilesAsNew 
+                                                                ? new List<TrackedFile>()
+                                                                : null;
 
                         while (!stoppingToken.IsCancellationRequested)
                         {
