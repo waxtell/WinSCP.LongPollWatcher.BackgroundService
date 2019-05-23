@@ -4,11 +4,13 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Will Axtell</Authors>
     <PackageTags>WinSCP Ftp Polling Background</PackageTags>
-    <PackageReleaseNotes>1.0.0 - Initial release</PackageReleaseNotes>
+    <PackageReleaseNotes>1.0.0 - Initial release
+1.0.1 - Added option to treat existing files as new</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/waxtell/WinSCP.LongPollWatcher.BackgroundService</PackageProjectUrl>
     <RepositoryUrl>https://github.com/waxtell/WinSCP.LongPollWatcher.BackgroundService.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Description>Ftp long polling background service for host builder applications</Description>
+    <Version>1.0.1</Version>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="2.2.0" />

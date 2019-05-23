@@ -7,5 +7,6 @@
         public string Mask { get; set; } = "*.*";
         public bool IncludeSubdirectories { get; set; } = true;
         public string SessionExecutablePath { get; set; }
+        public bool TreatExistingFilesAsNew { get; set; } = false;
     }
 }
